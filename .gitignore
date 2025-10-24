@@ -1,0 +1,50 @@
+############################
+# GODOT (cache / editor)
+############################
+.import/
+.godot/
+godot_proj_backup_*/
+export_presets.cfg
+*.godot-import
+*.translation
+*.import
+
+############################
+# BUILD / EXPORT
+############################
+export/
+bin/
+build/
+*.exe
+*.app
+*.pck
+*.apk
+*.ipa
+
+############################
+# SISTEMA OPERACIONAL
+############################
+
+# Linux
+*~
+
+############################
+# EDITORES / IDE
+############################
+.vscode/
+.idea/
+*.log
+
+############################
+# TEMPORÁRIOS
+############################
+*.tmp
+*.temp
+
+############################
+# GODOT 4 PARA MOBILE
+############################
+android/
+export_templates/
+
+############################
