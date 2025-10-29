@@ -1,7 +1,6 @@
 extends Area2D
 
-var speed: float = 680.0
-var damage: int = 10
+const speed: float = 500.0
 
 func _physics_process(delta: float) -> void:
 	

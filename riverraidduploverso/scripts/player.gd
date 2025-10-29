@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 # ainda não localizei a velocidade ideal
-const SPEED := 220.0
+const SPEED := 500.0
 
 # preciso balancear melhor o tempo de espera
-var tempo_espera := 0.5
-var tempo_tiro := 0.0
+var time_wait := 0.5
+var time_fire := 0.0
 
 # trazer o marcador (onde começa o tiro) para codigo
 @onready var gun: Node2D = $Gun
@@ -20,7 +20,7 @@ func _ready():
 		tela.x / 2,
 		tela.y * 0.95
 	)
-
+	
 func _physics_process(delta: float) -> void:
 	
 	# direcao horizontal de movimento
@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("move_left"):
 		dir.x -= 1
 
-	velocity = dir.normalized() * SPEED
+	velocity.x = dir.x * SPEED
 	move_and_slide()
 	
 	# meu primeiro código foi este:
@@ -41,11 +41,12 @@ func _physics_process(delta: float) -> void:
 	# if Input.is_action_pressed("fire") :
 	# _shoot()
 	
-	#código aprensentado pelo chatgpt como resolução
-	tempo_tiro = max(tempo_tiro - delta, 0.0)
-	if Input.is_action_pressed("fire") and tempo_tiro <= 0.0:
+	# código aprensentado pelo chatgpt como resolução
+	# aguardar um tempo para dar próximo tiro.
+	time_fire = max(time_fire - delta, 0.0)
+	if Input.is_action_pressed("fire") and time_fire <= 0.0:
 		_shoot()
-		tempo_tiro = tempo_espera
+		time_fire = time_wait
 
 func _shoot() -> void:
 	# instanciar a cena bala(tiro)
