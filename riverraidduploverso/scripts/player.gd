@@ -15,10 +15,10 @@ var time_fire := 0.0
 func _ready():
 	# posicionar o jogador sempre na parte debaixo da tela
 	# começar o eixo x no centro da tela, igual ao jogo original
-	var tela = get_viewport_rect().size
+	var screen = get_viewport_rect().size
 	global_position = Vector2(
-		tela.x / 2,
-		tela.y * 0.95
+		screen.x / 2,
+		screen.y * 0.95
 	)
 	
 func _physics_process(delta: float) -> void:
