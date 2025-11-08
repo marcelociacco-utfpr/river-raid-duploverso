@@ -1,26 +1,36 @@
 [gd_scene load_steps=8 format=3 uid="uid://vl13s1f2kutl"]
 
-[ext_resource type="Script" uid="uid://cp6luha4f6t3u" path="res://scripts/river_blue.gd" id="1_hrxnh"]
 [ext_resource type="Texture2D" uid="uid://c3k5mt3kerjvs" path="res://assets/tilemap.png" id="1_ndof5"]
+[ext_resource type="Script" uid="uid://3hjrariwsv03" path="res://scripts/blue_river.gd" id="2_w6hmi"]
 [ext_resource type="PackedScene" uid="uid://6l7s4syfy548" path="res://scenes/ship.tscn" id="3_8fvf6"]
 [ext_resource type="PackedScene" uid="uid://cor42ecw5h5ns" path="res://scenes/chopper.tscn" id="4_nw66d"]
 [ext_resource type="PackedScene" uid="uid://bl8dmy4sh5xrk" path="res://scenes/gas.tscn" id="5_w6hmi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hrxnh"]
 texture = ExtResource("1_ndof5")
-0:0/0 = 0
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_tarcr"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_hrxnh")
 
 [node name="WorldBlue" type="Node2D"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 544.0
+offset_bottom = 960.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.188235, 0.333333, 1, 1)
+
 [node name="River" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_tarcr")
-script = ExtResource("1_hrxnh")
+script = ExtResource("2_w6hmi")
 
 [node name="Ship" parent="." instance=ExtResource("3_8fvf6")]
 
