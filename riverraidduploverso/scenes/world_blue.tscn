@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://vl13s1f2kutl"]
+[gd_scene load_steps=9 format=3 uid="uid://vl13s1f2kutl"]
 
+[ext_resource type="Script" uid="uid://t66m5itc7qyj" path="res://scripts/world_blue.gd" id="1_6yat8"]
 [ext_resource type="Texture2D" uid="uid://c3k5mt3kerjvs" path="res://assets/tilemap.png" id="1_ndof5"]
 [ext_resource type="Script" uid="uid://3hjrariwsv03" path="res://scripts/blue_river.gd" id="2_w6hmi"]
 [ext_resource type="PackedScene" uid="uid://6l7s4syfy548" path="res://scenes/ship.tscn" id="3_8fvf6"]
@@ -17,6 +18,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_hrxnh")
 
 [node name="WorldBlue" type="Node2D"]
+script = ExtResource("1_6yat8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -32,8 +34,10 @@ color = Color(0.188235, 0.333333, 1, 1)
 tile_set = SubResource("TileSet_tarcr")
 script = ExtResource("2_w6hmi")
 
-[node name="Ship" parent="." instance=ExtResource("3_8fvf6")]
+[node name="Enemies" type="Node2D" parent="."]
 
-[node name="Chopper" parent="." instance=ExtResource("4_nw66d")]
+[node name="Ship" parent="Enemies" instance=ExtResource("3_8fvf6")]
+
+[node name="Chopper" parent="Enemies" instance=ExtResource("4_nw66d")]
 
 [node name="GAS" parent="." instance=ExtResource("5_w6hmi")]
