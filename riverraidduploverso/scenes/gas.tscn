@@ -6,7 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cm45x"]
 size = Vector2(16, 64)
 
-[node name="GAS" type="CharacterBody2D"]
+[node name="GAS" type="Area2D"]
+collision_layer = 4
 script = ExtResource("1_cm45x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
