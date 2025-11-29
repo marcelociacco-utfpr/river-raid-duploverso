@@ -17,6 +17,5 @@ func _process(delta):
 		scroll -= 80
 		offset -= 80
 		river.shift_and_generate_new_block()
-		get_tree().current_scene.remove_fuel(15)
 		
 	river.position.y = offset

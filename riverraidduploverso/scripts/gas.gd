@@ -7,8 +7,6 @@ enum State { FALLING, COLLECTED }
 var state: State = State.FALLING
 
 func _ready() -> void:
-	position.x = 240
-	position.y = 450
 	body_entered.connect(_got_collected)
 
 func _physics_process(delta: float) -> void:
@@ -20,13 +18,14 @@ func _physics_process(delta: float) -> void:
 		_: _process_falling(delta)
 
 func _process_falling(delta: float) -> void:
-	position.y += get_parent().SPEED * delta
+	position.y += get_parent().get_parent().SPEED * delta
 	if position.y > get_viewport_rect().size.y:
 		queue_free()
 
 func _process_collected() -> void:
-	print("colidiu com player")
-	get_tree().current_scene.add_fuel(50)
+	# colidiu com player
+	# aumentar fuel e sair da fila
+	get_tree().current_scene.add_fuel(500)
 	queue_free()
 	
 func _got_collected(body: Node) -> void:

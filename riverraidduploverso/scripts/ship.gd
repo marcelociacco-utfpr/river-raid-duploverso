@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # ainda não fiz balanceamento da velocidade final do navio
-const SPEED := 100.0
+const SPEED := 150.0
 const TILE := 16
 var direction := 1
 var screen : Vector2
@@ -13,7 +13,6 @@ var points: int = 10
 
 func _ready() -> void:
 	screen = get_viewport_rect().size
-	position.x = TILE*5
 	
 func _physics_process(delta: float) -> void:
 	match state:

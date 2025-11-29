@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://vl13s1f2kutl"]
+[gd_scene load_steps=11 format=3 uid="uid://vl13s1f2kutl"]
 
 [ext_resource type="Script" uid="uid://t66m5itc7qyj" path="res://scripts/world_blue.gd" id="1_6yat8"]
 [ext_resource type="Texture2D" uid="uid://c3k5mt3kerjvs" path="res://assets/tilemap.png" id="1_ndof5"]
 [ext_resource type="Script" uid="uid://3hjrariwsv03" path="res://scripts/blue_river.gd" id="2_w6hmi"]
 [ext_resource type="PackedScene" uid="uid://6l7s4syfy548" path="res://scenes/ship.tscn" id="3_8fvf6"]
 [ext_resource type="PackedScene" uid="uid://cor42ecw5h5ns" path="res://scenes/chopper.tscn" id="4_nw66d"]
+[ext_resource type="Script" uid="uid://dsetj668gyug0" path="res://scripts/enemies_spawner.gd" id="4_w6hmi"]
 [ext_resource type="PackedScene" uid="uid://bl8dmy4sh5xrk" path="res://scenes/gas.tscn" id="5_w6hmi"]
+[ext_resource type="Script" uid="uid://bsbpuxjvqtmy" path="res://scripts/fuel_spawner.gd" id="7_gnc2a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hrxnh"]
 texture = ExtResource("1_ndof5")
@@ -35,9 +37,10 @@ tile_set = SubResource("TileSet_tarcr")
 script = ExtResource("2_w6hmi")
 
 [node name="Enemies" type="Node2D" parent="."]
+script = ExtResource("4_w6hmi")
+ship_scene = ExtResource("3_8fvf6")
+chopper_scene = ExtResource("4_nw66d")
 
-[node name="Ship" parent="Enemies" instance=ExtResource("3_8fvf6")]
-
-[node name="Chopper" parent="Enemies" instance=ExtResource("4_nw66d")]
-
-[node name="GAS" parent="." instance=ExtResource("5_w6hmi")]
+[node name="Fuel" type="Node2D" parent="."]
+script = ExtResource("7_gnc2a")
+gas_scene = ExtResource("5_w6hmi")
