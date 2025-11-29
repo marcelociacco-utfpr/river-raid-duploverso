@@ -21,6 +21,7 @@ func _ready() -> void:
 	print("Vidas atuais:", Global.lives)
 #	set_state(GameState.MENU)
 
+# SOLUCAO APRESENTADA POR GUSTAVO HENRIQUE CARDOSO DE ARAUJO
 func _process(delta: float) -> void:	
 	if Input.is_action_just_pressed("change"):
 		worlds[current].visible = false
