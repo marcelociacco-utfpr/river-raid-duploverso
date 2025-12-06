@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 const enemy_ship := preload("res://scripts/ship.gd")
 const enemy_chopper := preload("res://scripts/chopper.gd")
+const enemy_bridge := preload("res://scripts/bridge.gd")
+const enemy_tower := preload("res://scripts/tower.gd")
+const enemy_missile := preload("res://scripts/missile.gd")
 
 # ainda não localizei a velocidade ideal
 const SPEED := 500.0
@@ -117,7 +120,9 @@ func _shoot() -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	# funcionalidade retirada e adaptada do video 
 	# https://youtu.be/McdCtvT-HJI?si=bko_chv7ZEx3BPdc
-	if body is enemy_ship or body is enemy_chopper:
+	if body is enemy_ship or body is enemy_chopper or body is enemy_bridge or body is enemy_tower or body is enemy_missile:
+		if body is enemy_missile:
+			print("bateu missil")
 		state = State.CRASHING
 				
 func _process_crashing() -> void:

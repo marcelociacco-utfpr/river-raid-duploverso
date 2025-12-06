@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-# ainda não fiz balanceamento da velocidade final do navio
 var screen : Vector2
 
 enum State { PATROL, DYING }

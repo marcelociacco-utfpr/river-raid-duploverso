@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://w1u0poqmr6bv"]
+[gd_scene load_steps=7 format=3 uid="uid://w1u0poqmr6bv"]
 
 [ext_resource type="Script" uid="uid://dxhcusqfcrl5b" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bow8dwlnky33p" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://vl13s1f2kutl" path="res://scenes/world_blue.tscn" id="1_yqjtg"]
 [ext_resource type="Script" uid="uid://nm56qghbc11v" path="res://scripts/world.gd" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://dw188k4rj7gwo" path="res://scenes/world_purple.tscn" id="3_lbhrr"]
+[ext_resource type="Script" uid="uid://dke8h2cf8vbn5" path="res://scripts/hud.gd" id="6_p57ef"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("worlds")]
 script = ExtResource("1_lnu2h")
@@ -19,3 +20,56 @@ script = ExtResource("3_iywne")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 collision_mask = 66
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_p57ef")
+
+[node name="BoxContainer" type="BoxContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 131.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="lives" type="HBoxContainer" parent="HUD/Control/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="vidas" type="Label" parent="HUD/Control/BoxContainer/lives"]
+layout_mode = 2
+text = "VIDAS:"
+
+[node name="lives_counter" type="Label" parent="HUD/Control/BoxContainer/lives"]
+layout_mode = 2
+
+[node name="gas" type="HBoxContainer" parent="HUD/Control/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="gas" type="Label" parent="HUD/Control/BoxContainer/gas"]
+layout_mode = 2
+text = "GAS"
+
+[node name="fuel_counter" type="Label" parent="HUD/Control/BoxContainer/gas"]
+layout_mode = 2
+
+[node name="score" type="HBoxContainer" parent="HUD/Control/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="HUD/Control/BoxContainer/score"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "PONTOS"
+
+[node name="score_counter" type="Label" parent="HUD/Control/BoxContainer/score"]
+layout_mode = 2

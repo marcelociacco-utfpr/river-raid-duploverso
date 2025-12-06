@@ -23,7 +23,7 @@ shape = SubResource("RectangleShape2D_g2els")
 position = Vector2(-4, -16)
 
 [node name="hitbox" type="Area2D" parent="."]
-collision_mask = 152
+collision_mask = 472
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 shape = SubResource("RectangleShape2D_qhqgy")

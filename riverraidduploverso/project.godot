@@ -58,6 +58,7 @@ change={
 2d_physics/layer_6="bullet"
 2d_physics/layer_7="bridge"
 2d_physics/layer_8="tower"
+2d_physics/layer_9="missile"
 
 [rendering]
 
