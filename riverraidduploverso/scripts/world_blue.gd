@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED := 300       
+const SPEED := 100       
 var offset := -240.0
 var scroll := 0.0
 

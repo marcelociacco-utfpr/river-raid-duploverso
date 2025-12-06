@@ -2,7 +2,7 @@ extends Node2D
 
 class_name World
 
-const SPEED := 300       
+const SPEED := 200      
 var offset := -240.0
 var scroll := 0.0
 
@@ -19,5 +19,5 @@ func _process(delta):
 		scroll -= 80
 		offset -= 80
 		river.shift_and_generate_new_block()
-		get_tree().current_scene.remove_fuel(5)
+		#get_tree().current_scene.remove_fuel(10)
 	river.position.y = offset

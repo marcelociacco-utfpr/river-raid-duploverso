@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkslvb6w2agoy"]
+
+[ext_resource type="Texture2D" uid="uid://catniptjdunj5" path="res://assets/bridge.png" id="1_7ct4w"]
+[ext_resource type="Script" uid="uid://bdae0begw2ro0" path="res://scripts/bridge.gd" id="1_im2sa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_im2sa"]
+size = Vector2(544, 32)
+
+[node name="Bridge" type="CharacterBody2D"]
+collision_layer = 64
+script = ExtResource("1_im2sa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7ct4w")
+offset = Vector2(272, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(272, 16)
+shape = SubResource("RectangleShape2D_im2sa")

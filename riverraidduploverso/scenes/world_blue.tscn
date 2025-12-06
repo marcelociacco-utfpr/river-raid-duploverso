@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://vl13s1f2kutl"]
+[gd_scene load_steps=13 format=3 uid="uid://vl13s1f2kutl"]
 
 [ext_resource type="Script" uid="uid://t66m5itc7qyj" path="res://scripts/world_blue.gd" id="1_6yat8"]
 [ext_resource type="Texture2D" uid="uid://c3k5mt3kerjvs" path="res://assets/tilemap.png" id="1_ndof5"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://dsetj668gyug0" path="res://scripts/enemies_spawner.gd" id="4_w6hmi"]
 [ext_resource type="PackedScene" uid="uid://bl8dmy4sh5xrk" path="res://scenes/gas.tscn" id="5_w6hmi"]
 [ext_resource type="Script" uid="uid://bsbpuxjvqtmy" path="res://scripts/fuel_spawner.gd" id="7_gnc2a"]
+[ext_resource type="Script" uid="uid://cq47pevyr8bkl" path="res://scripts/bridge_spawner.gd" id="9_c2oio"]
+[ext_resource type="PackedScene" uid="uid://dkslvb6w2agoy" path="res://scenes/bridge.tscn" id="10_i1vre"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hrxnh"]
 texture = ExtResource("1_ndof5")
@@ -15,11 +17,12 @@ texture = ExtResource("1_ndof5")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_tarcr"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_hrxnh")
 
 [node name="WorldBlue" type="Node2D"]
+light_mask = 0
 script = ExtResource("1_6yat8")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -44,3 +47,7 @@ chopper_scene = ExtResource("4_nw66d")
 [node name="Fuel" type="Node2D" parent="."]
 script = ExtResource("7_gnc2a")
 gas_scene = ExtResource("5_w6hmi")
+
+[node name="Bridge" type="Node2D" parent="."]
+script = ExtResource("9_c2oio")
+bridge_scene = ExtResource("10_i1vre")

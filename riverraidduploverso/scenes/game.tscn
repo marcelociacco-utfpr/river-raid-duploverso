@@ -1,148 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://w1u0poqmr6bv"]
+[gd_scene load_steps=6 format=3 uid="uid://w1u0poqmr6bv"]
 
 [ext_resource type="Script" uid="uid://dxhcusqfcrl5b" path="res://scripts/game.gd" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bow8dwlnky33p" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://vl13s1f2kutl" path="res://scenes/world_blue.tscn" id="1_yqjtg"]
 [ext_resource type="Script" uid="uid://nm56qghbc11v" path="res://scripts/world.gd" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://dw188k4rj7gwo" path="res://scenes/world_purple.tscn" id="3_lbhrr"]
-[ext_resource type="Script" uid="uid://gp201e0uinvu" path="res://scripts/main_menu.gd" id="6_p57ef"]
-[ext_resource type="Script" uid="uid://dy7x8vi8age08" path="res://scripts/pause_menu.gd" id="7_gee14"]
-[ext_resource type="Script" uid="uid://b5guy5cbrg8jb" path="res://scripts/hud.gd" id="8_0tnpc"]
-[ext_resource type="Script" uid="uid://buhrfeou3nph1" path="res://scripts/game_over_menu.gd" id="9_0tnpc"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("worlds")]
 script = ExtResource("1_lnu2h")
 worlds = [NodePath("WorldBlue"), NodePath("WorldPurple")]
 
 [node name="WorldBlue" parent="." instance=ExtResource("1_yqjtg")]
-light_mask = 0
-visibility_layer = 32
 script = ExtResource("3_iywne")
 
 [node name="WorldPurple" parent="." instance=ExtResource("3_lbhrr")]
 visible = false
-light_mask = 0
-visibility_layer = 64
 script = ExtResource("3_iywne")
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
-
-[node name="MainMenu" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("6_p57ef")
-
-[node name="Panel" type="Panel" parent="MainMenu"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -271.0
-offset_top = -20.0
-offset_right = 271.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Panel"]
-layout_mode = 0
-offset_left = 228.0
-offset_top = 40.0
-offset_right = 281.0
-offset_bottom = 141.0
-
-[node name="Play" type="Button" parent="MainMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Jogar"
-
-[node name="Help" type="Button" parent="MainMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Ajuda"
-
-[node name="Exit" type="Button" parent="MainMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Sair"
-
-[node name="RiverRaid Duploverso" type="Label" parent="MainMenu/Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "RiverRaid Duploverso"
-
-[node name="PauseMenu" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("7_gee14")
-
-[node name="Panel" type="Panel" parent="PauseMenu"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Continue" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Continue"
-
-[node name="Restart" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Reiniciar"
-
-[node name="Exit" type="Button" parent="PauseMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Sair"
-
-[node name="HUD" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("8_0tnpc")
-
-[node name="MarginContainer" type="MarginContainer" parent="HUD"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer"]
-layout_mode = 2
-
-[node name="Lives" type="Label" parent="HUD/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Score" type="Label" parent="HUD/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Fuel" type="Label" parent="HUD/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="GameOverMenu" type="CanvasLayer" parent="."]
-visible = false
-script = ExtResource("9_0tnpc")
-
-[node name="Panel" type="Panel" parent="GameOverMenu"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="GameOverMenu/Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TitleLabel" type="Label" parent="GameOverMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "FIM DE JOGO"
-
-[node name="ScoreLabel" type="Label" parent="GameOverMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Pontos: 0"
-
-[node name="RetryButton" type="Button" parent="GameOverMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Reiniciar"
-
-[node name="MenuButton" type="Button" parent="GameOverMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Voltar ao Menu"
-
-[node name="QuitButton" type="Button" parent="GameOverMenu/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Sair"
+collision_mask = 66

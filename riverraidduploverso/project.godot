@@ -48,6 +48,17 @@ change={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="world_blue"
+2d_physics/layer_3="world_purple"
+2d_physics/layer_4="enemies"
+2d_physics/layer_5="gas"
+2d_physics/layer_6="bullet"
+2d_physics/layer_7="bridge"
+2d_physics/layer_8="tower"
+
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"

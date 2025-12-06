@@ -11,7 +11,7 @@ var time_wait := 0.5
 var time_fire := 0.0
 
 enum State { IDLE, MOVING, CRASHING, DEAD }
-enum ShootState { READY, FIRING, COOLDOWN }
+enum ShootState { READY, FIRING, COOLDOWN, BLOCKED }
 
 var state: State = State.IDLE
 var shoot_state: ShootState = ShootState.READY
@@ -142,3 +142,9 @@ func _process_dead() -> void:
 	self.modulate = Color(1,1,1,0)
 	await get_tree().create_timer(0.2).timeout
 	get_tree().current_scene.remove_life()
+	
+func setShoot(enable: bool) -> void:
+	if enable:
+		shoot_state = ShootState.READY
+	else:
+		shoot_state = ShootState.BLOCKED
